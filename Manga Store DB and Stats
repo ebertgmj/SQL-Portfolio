@@ -20,7 +20,7 @@ insert into Manga VALUES
 SELECT * FROM store
 ORDER BY price desc;
 
---some statistics for prices
+--some statistics for prices and limiting the average price in two decimal places
 SELECT max(price) 'Max Price' FROM Manga;
 SELECT ROUND(avg(price), 2) 'Average Price' FROM Manga;
 SELECT min(price) 'Minimum Price' FROM Manga;
