@@ -1,0 +1,29 @@
+--CREATING A MANGA STORE
+
+CREATE TABLE Manga(id INTEGER PRIMARY KEY, Volume INTEGER, Name TEXT, Publisher TEXT, Price REAL);
+
+insert into Manga VALUES
+(1, 8, 'Kaiju No.8', 'Shueisha', 12.99),
+(2, 2, 'Golden Kamuy', 'Shueisha', 11.99),
+(3, 6, 'Black Butler', 'Square Enix', 12.49),
+(4, 4, 'One Piece', 'Shueisha', 10.89),
+(5, 7, 'Naruto', 'Shueisha', 11.79),
+(6, 1, 'Attack on Titan', 'Kodansha', 12.69),
+(7, 9, 'My Hero Academia', 'Shueisha', 12.59),
+(8, 3, 'One Punch Man', 'Shueisha', 11.49),
+(9, 10, 'Hunter x Hunter', 'Shueisha', 12.39),
+(10, 5, 'Death Note', 'Shueisha', 12.49),
+(11, 6, 'Fullmetal Alchemist', 'Square Enix', 11.59),
+(12, 2, 'Bleach', 'Shueisha', 12.69);
+
+--displaying the database and ordering by price
+SELECT * FROM store
+ORDER BY price desc;
+
+--some statistics for prices
+SELECT max(price) 'Max Price' FROM Manga;
+SELECT ROUND(avg(price), 2) 'Average Price' FROM Manga;
+SELECT min(price) 'Minimum Price' FROM Manga;
+
+--displaying titles whom contain 'e' and limiting amount displayed
+SELECT * FROM Manga WHERE Name LIKE '%e%' limit 5;
