@@ -1,0 +1,234 @@
+/* Creating the tables for fictional and famous people and their associations */
+
+CREATE TABLE movie_stars (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    married INTEGER,
+    movie_id INTEGER
+);
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY,
+    title TEXT
+);
+
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    song_id INTEGER,
+    birthplace TEXT
+);
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY,
+    title TEXT
+);
+
+CREATE TABLE authors (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    author_id INTEGER
+);
+
+CREATE TABLE fic_characters (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    book_id INTEGER,
+    lovers INTEGER,
+    family INTEGER
+);
+
+/* Feeding these tables with data */
+
+INSERT INTO fic_characters (name, book_id, lovers, family) VALUES
+('Elizabeth Bennet', 1, 2, NULL),
+('Mr. Darcy', 1, 1, NULL),
+('Elinor Dashwood', 2, 4, 5),
+('Edward Ferrars', 2, 3, NULL),
+('Marianne Dashwood', 2, 6, 3),
+('John Willoughby', 2, 5, NULL),
+('Santiago', 3, NULL, 8),
+('Manolin', 3, NULL, 7),
+('Frederic Henry', 4, 10, NULL),
+('Catherine Barkley', 4, 9, NULL),
+('Sethe', 5, NULL, 12),
+('Beloved', 5, NULL, 11),
+('Hamlet', 7, 14, NULL),
+('Ophelia', 7, 13, NULL),
+('Romeo Montague', 8, 16, NULL),
+('Juliet Capulet', 8, 15, NULL),
+('Jay Gatsby', 11, 18, NULL),
+('Daisy Buchanan', 11, 17, NULL);
+
+INSERT INTO authors (name) VALUES
+('Jane Austen'),
+('Ernest Hemingway'),
+('Toni Morrison'),
+('William Shakespeare'),
+('Virginia Woolf'),
+('F. Scott Fitzgerald'),
+('Gabriel Garcia Marquez'),
+('J.K. Rowling'),
+('Chinua Achebe'),
+('George Orwell');
+
+INSERT INTO books (name, author_id) VALUES
+('Pride and Prejudice', 1),
+('Sense and Sensibility', 1),
+('The Old Man and the Sea', 2),
+('A Farewell to Arms', 2),
+('Beloved', 3),
+('The Bluest Eye', 3),
+('Hamlet', 4),
+('Romeo and Juliet', 4),
+('Mrs. Dalloway', 5),
+('To The Lighthouse', 5),
+('The Great Gatsby', 6),
+('Tender Is The Night', 6),
+('One Hundred Years of Solitude', 7),
+('Love in the Time of Cholera', 7),
+('Harry Potter and the Philosophers Stone', 8),
+('Harry Potter and the Chamber of Secrets', 8),
+('Things Fall Apart', 9),
+('Arrow of God', 9), 
+('1984', 10),
+('Animal Farm', 10);
+
+INSERT INTO movies (id, title) 
+VALUES 
+(1, 'Deadpool, The Proposal, Safe House'),
+(2, 'The Shallows, A Simple Favor, The Age of Adaline'),
+(3, 'A Quiet Place, 13 Hours, The Office'),
+(4, 'Edge of Tomorrow, Sicario, Mary Poppins Returns'),
+(5, 'Between Two Ferns: The Movie, Hotel Transylvania 3: Summer Vacation'),
+(6, 'La La Land, Soul, Jesus Christ Superstar Live in Concert'),
+(7, 'Ocean''s Eleven, Gravity, The Descendants'),
+(8, 'The International, Money Monster'),
+(9, 'Frozen, The Good Place, Veronica Mars'),
+(10, 'Hit and Run, Bless This Mess, CHiPs'),
+(11, 'Forrest Gump, Saving Private Ryan, Toy Story'),
+(12, 'Jingle All the Way, Sleepless in Seattle, It''s Complicated'),
+(13, 'Independence Day, Bad Boys, Men in Black'),
+(14, 'The Nutty Professor, Girls Trip, The Matrix Reloaded'),
+(15, 'King Arthur: Legend of the Sword, Bend It Like Beckham, Goal!'),
+(16, 'Spice World, Zoolander'),
+(17, 'No Country for Old Men, Skyfall, Pirates of the Caribbean: Dead Men Tell No Tales'),
+(18, 'Volver, Vicky Cristina Barcelona, Pirates of the Caribbean: On Stranger Tides'),
+(19, 'Casino Royale, Knives Out, The Girl with the Dragon Tattoo'),
+(20, 'The Constant Gardener, The Mummy Returns, The Lobster');
+
+INSERT INTO movie_stars (name, married, movie_id) 
+VALUES 
+('Ryan Reynolds', 2, 1),
+('Blake Lively', 1, 2),
+('John Krasinski', 4, 3),
+('Emily Blunt', 3, 4),
+('Chrissy Teigen', NULL, 5),
+('John Legend', NULL, 6),
+('George Clooney', 8, 7),
+('Amal Clooney', 7, 8),
+('Kristen Bell', 10, 9),
+('Dax Shepard', 9, 10),
+('Tom Hanks', 12, 11),
+('Rita Wilson', NULL, 12),
+('Will Smith', 14, 13),
+('Jada Pinkett Smith', NULL, 14),
+('David Beckham', NULL, 15),
+('Victoria Beckham', NULL, 16),
+('Javier Bardem', 16, 17),
+('Penelope Cruz', 15, 18),
+('Daniel Craig', 18, 19),
+('Rachel Weisz', 17, 20);
+
+INSERT INTO songs (title) VALUES
+('Shape of You, Galway Girl'),
+('Uptown Funk, Valerie'),
+('I Will Always Love You, I Wanna Dance With Somebody'),
+('Thriller, Billie Jean'),
+('Bohemian Rhapsody, We Will Rock You'),
+('My Heart Will Go On, Just Walk Away'),
+('Hey Jude, Let It Be'),
+('Stairway To Heaven, Whole Lotta Love'),
+('Sweet Child O Mine, November Rain'),
+('Hotel California, Love Will Keep Us Alive'),
+('End Of The Line, Handle With Care'),
+('Imagine, Yellow Submarine'),
+('Smells Like Teen Spirit, Something In The Way'),
+('With Or Without You, Beautiful Day'),
+('Thunderstruck, Highway To Hell'),
+('Lets Twist Again, The Fly');
+
+INSERT INTO singers (name, song_id, birthplace) VALUES 
+('Ed Sheeran', 1, 'Halifax, England'),
+('Mark Ronson', 2, 'London, England'),
+('Whitney Houston', 3, 'Newark, New Jersey'),
+('Michael Jackson', 4, 'Gary, Indiana'),
+('Freddie Mercury', 5, 'Stone Town, Tanzania'),
+('Celine Dion', 6, 'Charlemagne, Quebec'),
+('Paul McCartney', 7, 'Liverpool, England'),
+('Robert Plant', 8, 'West Bromwich, England'),
+('Axl Rose', 9, 'Lafayette, Indiana'),
+('Don Henley', 10, 'Gilmer, Texas'),
+('Bob Dylan', 11, 'Duluth, Minnesota'),
+('John Lennon', 12, 'Liverpool, England'),
+('Kurt Cobain', 13, 'Aberdeen, Washington'),
+('Bono', 14, 'Dublin, Ireland'),
+('Brian Johnson', 15, 'Dunston, England'),
+('Chubby Checker', 16, 'Spring Gulley, South Carolina');
+
+/* Finding out what movies each actor/actress has been in */
+
+SELECT a.name, b.title
+FROM movies b
+JOIN movie_stars a
+on a.id=b.id;
+
+/* Seeing if actor/actress is married and with whom */
+
+SELECT a.name AS StarName, b.name AS SpouseName
+FROM movie_stars a
+JOIN movie_stars b
+ON a.married = b.id;
+
+/* Showing singers and their songs and where they were born */
+
+SELECT a.name as Singer, b.title as Songs, birthplace as Born
+FROM songs b
+JOIN singers a
+ON a.song_id = b.id;
+
+/* Showing author and their books using GROUP_CONCAT() to group up books made by the same author */
+
+SELECT a.name as Author, GROUP_CONCAT(b.name) as Books
+FROM books b
+JOIN authors a
+ON a.id = b.author_id
+GROUP BY a.name;
+
+/* Showing fictional characters and with whom they have a love relationship with */
+
+SELECT a.name AS Character, b.name AS Love_Interest
+FROM fic_characters a
+JOIN fic_characters b
+ON a.id = b.lovers;
+
+/* Showing fictional characters and they are related as family */
+
+SELECT a.name AS Character, b.name AS Family
+FROM fic_characters a
+JOIN fic_characters b
+ON a.id = b.family;
+
+/* Showing fictional character and what book they appear */
+
+SELECT b.name AS Book, c.name AS Character
+FROM books b
+JOIN fic_characters c 
+ON b.id = c.book_id;
+
+
