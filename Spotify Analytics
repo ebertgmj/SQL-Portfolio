@@ -33,6 +33,19 @@ WHERE popularity > 80;
 #What is the average duration of songs in the table?
 
 SELECT AVG(duration_ms) AS avg_duration 
+
+#Calculate the average popularity for the artists in the Spotify data table. 
+#Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
+WITH tempTable AS (
+SELECT s.artist_name, 
+AVG(s.popularity) AS avg_pop
+FROM Spotifydata s
+GROUP BY s.artist_name
+)
+
+SELECT artist_name, avg_pop, 'TopStar' AS tag
+FROM tempTable
+WHERE avg_pop>=90;
 FROM BIT_DB.Spotifydata;
 
 #What is the distribution of song keys in the table?
